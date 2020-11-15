@@ -63,69 +63,70 @@ M915 X Y S2 F0 H200 			; X / Y Axes
 M308 S0 P"bedtemp" Y"thermistor" A"Bed" T100000 B4138 C0    ; Set thermistor 
 M950 H0 C"bedheat" T0                                       ; Bed heater
 M140 H0                                                     ; Add heater to bed after RRF3.01 RC10
-M143 H0 S120                                                ; Set temperature limit for heater 0 to 225C
+M143 H0 S120                                                ; Set temperature limit for heater 0 to 120C
 
-M308 S1 P"e0_temp" Y"thermistor" A"Tool 1"				; Set thermistor
+M308 S1 P"e0_temp" Y"thermistor" A"0.4mm #1"				; Set thermistor
 M950 H1 C"e0_heat" T1;										; Assign heater
 M143 H1 S300 												; Set temperature limit for heater 1 to 300C
 M307 H1 A559.7 C283.1 D3.5              					; v6, 30w results from m303 h1 s275
 
-M308 S2 P"e1_temp" Y"thermistor" A"Tool 2"				; Set thermistor
+M308 S2 P"e1_temp" Y"thermistor" A"0.4mm #2"				; Set thermistor
 M950 H2 C"e1_heat" T2;										; Assign heater
 M143 H2 S300 												; Set temperature limit for heater 2 to 300C
 M307 H2 A559.7 C283.1 D3.5              					; v6, 30w results from m303 h2 s275
 
-M308 S3 P"duex.e2temp" Y"thermistor" A"Tool 3"				; Set thermistor
+M308 S3 P"duex.e2temp" Y"thermistor" A"0.6mm"				; Set thermistor
 M950 H3 C"duex.e2_heat" T3;									; Assign heater
 M143 H3 S300 												; Set temperature limit for heater 3 to 300C
 M307 H3 A559.7 C283.1 D3.5          			    		; v6, 30w results from m303 h3 s275
 
-M308 S4 P"duex.e3temp" Y"thermistor" A"Tool 4"							; Set thermistor
+M308 S4 P"duex.e3temp" Y"thermistor" A"1.0mm"				; Set thermistor
 M950 H4 C"duex.e3_heat" T4;									; Assign heater
 M143 H4 S300 												; Set temperature limit for heater 4 to 
 M307 H4 A559.7 C283.1 D3.5              					; v6, 30w results from m303 h4 s2
 
 ; Tools
-M563 P0 S"T0" D0 H1 F2 				; Define tool 0
+M563 P0 S"T0" D0 H1 F1				; Define tool 0
 G10 P0 X0 Y0 Z0 					; Reset tool 0 axis offsets
 G10 P0 R0 S0 						; Reset initial tool 0 active and standby temperatures to 0C
 
-M563 P1 S"T1" D1 H2 F4				; Define tool 1
+M563 P1 S"T1" D1 H2 F3				; Define tool 1
 G10 P1 X0 Y0 Z0 					; Reset tool 1 axis offsets
 G10 P1 R0 S0 						; Reset initial tool 1 active and standby temperatures to 0C
 
-M563 P2 S"T2" D2 H3 F6				; Define tool 2
+M563 P2 S"T2" D2 H3 F5				; Define tool 2
 G10 P2 X0 Y0 Z0 					; Reset tool 2 axis offsets
 G10 P2 R0 S0 						; Reset initial tool 2 active and standby temperatures to 0C
 
-M563 P3 S"T3" D3 H4 F8				; Define tool 3
+M563 P3 S"T3" D3 H4	F7				; Define tool 3
 G10 P3 X0 Y0 Z0 					; Reset tool 3 axis offsets
 G10 P3 R0 S0 						; Reset initial tool 3 active and standby temperatures to 0C
 
 ; Fans
-M950 F1 C"fan1"
-M106 P1 S255 H1 T50					; T0 HE
+M950 F0 C"fan1"
+M106 P0 S255 H1 T50					; T0 HE
 
-M950 F2 C"fan2"
-M106 P2 S0 							; T0 Part Cooling Fan
+M950 F1 C"fan2"
+M106 P1 S0 							; T0 Part Cooling Fan
 
-M950 F3 C"duex.fan3"
-M106 P3 S255 H2 T50					; T1 HE
+M950 F2 C"duex.fan3"
+M106 P2 S255 H2 T50					; T1 HE
 
-M950 F4 C"duex.fan4"
-M106 P4 S0 							; T1 Part Cooling Fan
+M950 F3 C"duex.fan4"
+M106 P3 S0 							; T1 Part Cooling Fan
 
-M950 F5 C"duex.fan5"
-M106 P5 S255 H3 T50					; T2 HE
+M950 F4 C"duex.fan5"
+M106 P4 S255 H3 T50					; T2 HE
 
-M950 F6 C"duex.fan6"
-M106 P6 S0 							; T2 Part Cooling Fan
+M950 F5 C"duex.fan6"
+M106 P5 S0 							; T2 Part Cooling Fan
 
-M950 F7 C"duex.fan7"
-M106 P7 S255 H4 T50					; T3 HE
+M950 F6 C"duex.fan7"
+M106 P6 S255 H4 T50					; T3 HE
 
-M950 F8 C"duex.fan8"
-M106 P8 S0 							; T3 Part Cooling Fan
+M950 F7 C"duex.fan8"
+M106 P7 S0 							; T3 Part Cooling Fan
+
 
 M593 F50							; cancel ringing at 50Hz
 
