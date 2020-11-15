@@ -95,7 +95,7 @@ G10 P1 X0 Y0 Z0 					; Reset tool 1 axis offsets
 G10 P1 R0 S0 						; Reset initial tool 1 active and standby temperatures to 0C
 
 M563 P2 S"T2" D2 H3 F5				; Define tool 2
-G10 P2 X0 Y0 Z0 					; Reset tool 2 axis offsets
+G10 P2 X0 Y0 Z8.15 					; Reset tool 2 axis offsets
 G10 P2 R0 S0 						; Reset initial tool 2 active and standby temperatures to 0C
 
 M563 P3 S"T3" D3 H4	F7				; Define tool 3
@@ -130,15 +130,11 @@ M106 P7 S0 							; T3 Part Cooling Fan
 
 M593 F50							; cancel ringing at 50Hz
 
-G29 S1
+;G29 S1
 
 ;M575 P1 S1 B57600 				;Enable PanelDue 7i
 
-;tool offsets
-G10 P0 X-9 Y39 Z-5					; T0
-G10 P1 X-9 Y39 Z-5					; T1
-G10 P2 X-9 Y39 Z-5					; T2
-G10 P3 X-9 Y39 Z-5					; T3
+M98 P/sys/offsets.g
 
 ;deselect tools
 T-1
