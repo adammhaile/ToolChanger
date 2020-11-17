@@ -1,6 +1,8 @@
 ; tpre3.g
 ; called before tool 3 is selected
 
+G29 S2
+
 ;Ensure no tool is selected
 ;T-1
 
@@ -28,3 +30,4 @@ G90
 ;Move Out
 G1 X304.5 Y150 F4000
 
+G29 S1

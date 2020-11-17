@@ -1,6 +1,8 @@
 ; homez.g
 ; called to home the Z axis
 
+G29 S2
+
 T-1       ;just in case there is a tool coupled, go try to drop it at the dock
 
 M98 P/macros/Coupler - Unlock	;Open Coupler
@@ -20,3 +22,5 @@ G30 Z-300 H1 F300		; Move Z down until the switch triggers (second pass)
 G1 Z10 F5000			; Drop the Bed
 
 G90						; Back to absolute positioning
+
+G29 S1

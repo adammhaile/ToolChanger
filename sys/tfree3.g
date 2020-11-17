@@ -1,6 +1,8 @@
 ; tfree3.g
 ; called when tool 3 is freed
 
+G29 S2
+
 ;Drop the bed
 G91
 G1 Z4 F1000
@@ -26,3 +28,5 @@ M98 P/macros/Coupler - Unlock
 
 ;Move Out
 G53 G1 X304.5 Y175 F50000
+
+G29 S1
