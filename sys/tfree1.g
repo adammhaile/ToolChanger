@@ -24,7 +24,7 @@ G53 G1 X79.5 Y243 F5000
 M98 P/macros/Coupler - Unlock
 
 ;fan off
-;M106 P4 S0
+M106 P4 S0
 
 ;Move Out
 G53 G1 X79.5 Y175 F50000

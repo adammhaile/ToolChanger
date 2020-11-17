@@ -11,4 +11,4 @@ M116 P3
 G29 S1
 
 ;PCF fan on
-;M106 P8 R2
+M106 R2
