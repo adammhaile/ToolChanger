@@ -5,7 +5,7 @@ G29 S2
 
 T-1       ;just in case there is a tool coupled, go try to drop it at the dock
 
-M98 P/macros/Coupler - Unlock	;Open Coupler
+M98 P"/macros/Coupler/Unlock"	;Open Coupler
 
 G91 					; Relative mode
 G1 H2 Z5 F5000			; Lower the bed
