@@ -111,6 +111,14 @@ M563 P1 S"T1" D1 H2 F4        ; Define tool 1 with associated heater and fan
 M563 P2 S"T2" D2 H3 F6        ; Define tool 2 with associated heater and fan
 M563 P3 S"T3" D3 H4 F8        ; Define tool 3 with associated heater and fan
 
+; Lights
+M307 H7 A-1 C-1 D-1			  ; make E6 heater pin available
+M950 P0 C"duex.e6_heat" Q4000 ; setup GPIO for lights on E6 heat output, 2kHz
+
+; E-Stop
+M950 J1 C"e1stop"
+M581 P1 T0 C0 S1
+
 ; Reset Offsets and Temperatures
 G10 P0 X0 Y0 Z0               ; Reset tool 0 axis offsets
 G10 P0 R0 S0                  ; Reset initial tool 0 active and standby temperatures to 0C
@@ -124,11 +132,9 @@ G10 P3 R0 S0                  ; Reset initial tool 3 active and standby temperat
 
 M593 F50							; cancel ringing at 50Hz
 
-;G29 S1
+M575 P1 S1 B57600 					; Enable PanelDue 7i
 
-;M575 P1 S1 B57600 					;Enable PanelDue 7i
-
-M98 P/sys/offsets.g
+M98 P/sys/offsets.g					; load nozzle offsets
 
 M501 								; load config-override.g
 

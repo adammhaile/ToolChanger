@@ -85,35 +85,6 @@ M950 H4 C"duex.e3_heat" T4;									; Assign heater
 M143 H4 S300 												; Set temperature limit for heater 4 to 
 M307 H4 A559.7 C283.1 D3.5              					; v6, 30w results from m303 h4 s2
 
-
-; Fans
-; M950 F0 C"fan0"						; unused
-; M106 P0 S0
-
-; M950 F1 C"fan1"
-; M106 P1 S255 H1 T50					; T0 HE
-
-; M950 F2 C"fan2"
-; M106 P2 S0 							; T0 Part Cooling Fan
-
-; M950 F3 C"duex.fan3"
-; M106 P3 S255 H2 T50					; T1 HE
-
-; M950 F4 C"duex.fan4"
-; M106 P4 S0 							; T1 Part Cooling Fan
-
-; M950 F5 C"duex.fan5"
-; M106 P5 S255 H3 T50					; T2 HE
-
-; M950 F6 C"duex.fan6"
-; M106 P6 S0 							; T2 Part Cooling Fan
-
-; M950 F7 C"duex.fan7"
-; M106 P7 S255 H4 T50					; T3 HE
-
-; M950 F8 C"duex.fan8"
-; M106 P8 S0 							; T3 Part Cooling Fan
-
 ; Fans
 M950 F1 C"fan1"               ; T0 Hotend
 M950 F2 C"fan2"               ; T0 Part Cooling
@@ -140,6 +111,14 @@ M563 P1 S"T1" D1 H2 F4        ; Define tool 1 with associated heater and fan
 M563 P2 S"T2" D2 H3 F6        ; Define tool 2 with associated heater and fan
 M563 P3 S"T3" D3 H4 F8        ; Define tool 3 with associated heater and fan
 
+; Lights
+M307 H7 A-1 C-1 D-1			  ; make E6 heater pin available
+M950 P0 C"duex.e6_heat" Q4000 ; setup GPIO for lights on E6 heat output, 2kHz
+
+; E-Stop
+M950 J1 C"e1stop"
+M581 P1 T0 C0 S0
+
 ; Reset Offsets and Temperatures
 G10 P0 X0 Y0 Z0               ; Reset tool 0 axis offsets
 G10 P0 R0 S0                  ; Reset initial tool 0 active and standby temperatures to 0C
@@ -153,11 +132,9 @@ G10 P3 R0 S0                  ; Reset initial tool 3 active and standby temperat
 
 M593 F50							; cancel ringing at 50Hz
 
-;G29 S1
+M575 P1 S1 B57600 					; Enable PanelDue 7i
 
-;M575 P1 S1 B57600 					;Enable PanelDue 7i
-
-M98 P/sys/offsets.g
+M98 P/sys/offsets.g					; load nozzle offsets
 
 M501 								; load config-override.g
 
