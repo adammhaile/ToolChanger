@@ -117,7 +117,7 @@ M950 P0 C"duex.e6_heat" Q4000 ; setup GPIO for lights on E6 heat output, 2kHz
 
 ; E-Stop
 M950 J1 C"e1stop"
-M581 P1 T0 C0 S0
+M581 P1 T0 C0 S1
 
 ; Reset Offsets and Temperatures
 G10 P0 X0 Y0 Z0               ; Reset tool 0 axis offsets

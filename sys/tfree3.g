@@ -27,6 +27,6 @@ M98 P"/macros/Coupler/Unlock"
 M106 P8 S0
 
 ;Move Out
-G53 G1 X304.5 Y175 F50000
+G53 G1 X304.5 Y150 F50000
 
 G29 S1
