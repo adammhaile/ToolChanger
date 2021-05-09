@@ -1,0 +1,7 @@
+M83				; Relative extruder moves
+G92 E0			; set extruder to 0
+G1 E15 F200		; purge
+G1 E-5 F3600	; pull out 5mm @ 60mm/s
+G1 E-140 F2400	; pull out 140mm @ 40mm/s
+M400			; Wait for move to complete
+G92 E0			; set extruder to 0

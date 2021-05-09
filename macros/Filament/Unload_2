@@ -1,0 +1,5 @@
+M83				; Relative extruder moves
+G92 E0			; set extruder to 0
+G1 E-800 F3600	; pull out 800mm @ 60mm/s
+M400			; Wait for move to complete
+G92 E0			; set extruder to 0

@@ -1,0 +1,5 @@
+M83				; Relative extruder moves
+G92 E0			; set extruder to 0
+G1 E150 F300	; Move forward 150mm @ 5mm/s
+M400			; Wait for move to complete
+G92 E0			; set extruder to 0

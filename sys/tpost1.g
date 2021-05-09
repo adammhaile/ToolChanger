@@ -4,8 +4,10 @@
 ;heatup
 M116 P1
 
-;prime nozzle
-;M98 Pprime_left.g
+M98 P"purge.g"
+
+;Move Out
+G53 G1 X76.2 Y150 F4000
 
 ;mesh levelling on
 G29 S1
